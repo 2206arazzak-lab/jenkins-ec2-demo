@@ -15,6 +15,12 @@ pipeline {
             steps {
                 sh 'test -f index.html'
                 echo 'Test passed: index.html exists'
+                stage('Deploy') {
+    steps {
+        sh 'cp index.html /var/www/html/index.html'
+        echo 'Website deployed successfully!'
+    }
+}
             }
         }
     }
